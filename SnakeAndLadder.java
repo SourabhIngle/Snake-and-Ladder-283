@@ -8,7 +8,8 @@ public class SnakeAndLadder {
     static int noPlay = 1;
     static int ladder = 2;
     static int snake = 3;
-    void gettingOptionSnakeLadderAndNoPlay() {
+    static int win = 100;
+    static void gettingOptionSnakeLadderAndNoPlay() {
         option = (int) Math.floor(Math.random() * 10) % 3 + 1;
     }
     static int rollDice()
@@ -54,11 +55,13 @@ public class SnakeAndLadder {
 
     public static void main(String[] args) {
         System.out.println("Player position stating from " + playerPosition);
-
-        rollDice();
-        System.out.println("Dice roll is " + rollDice());
-        System.out.println("Your current Position is " + playerPosition);
-        playerCondition();
+        while (playerPosition <= win) {
+            rollDice();
+            gettingOptionSnakeLadderAndNoPlay();
+            System.out.println("Dice roll is " + rollDice());
+            System.out.println("Your current Position is " + playerPosition);
+            playerCondition();
+        }
 
     }
 }
