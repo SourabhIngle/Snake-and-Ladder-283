@@ -17,6 +17,16 @@ public class SnakeAndLadder {
         dice = (int) Math.floor(Math.random() * 10) % 6 + 1;
         return dice ;
     }
+
+    static void ensureGettingExactPosition() {
+        if (playerPosition > 100) {
+            System.out.println("sorry, your dice is " + dice + " " +
+                    "and player position is " + playerPosition + " out of the win position" +
+                    " try again better luck next time to get the right number");
+            playerPosition = playerPosition - dice;
+        }
+    }
+
     static void playerCondition() {
         if (noPlay == option) {
             System.out.println("(NO-PLAY)=> NO LADDER, NO SNAKE, JUST POSITION");
@@ -54,6 +64,7 @@ public class SnakeAndLadder {
     }
 
     public static void main(String[] args) {
+        System.out.println("Player position stating from " + playerPosition);
         System.out.println("Player position stating from " + playerPosition);
         while (playerPosition <= win) {
             rollDice();
